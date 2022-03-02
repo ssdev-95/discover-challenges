@@ -1,4 +1,4 @@
-$ROCKET-PURPLE: #510391;
+$ROCKET-PURPLE: #5903c1;
 $ROCKET-PURPLE-LIGHT:#bb99dd;
 $GREEN-VUE: #41b883;
 
@@ -75,15 +75,26 @@ $PRIMARY: $GREEN-VUE;
 	align-items: center;
 	justify-content: space-evenly;
 
+	a, button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: none;
+	}
+
 	& a {
 		width: 30px;
 		height: 30px;
 	}
 
-	& button::disabled {
-		border: 2px solid $PRIMARY;
-		filter: grayscale(.7);
+	& button:disabled {
 		width: 30px;
 		height: 30px;
+		border: 2px solid $ROCKET-PURPLE;
+		border-radius: 4px;
+
+		& img {
+			filter: invert(10%) sepia(67%) saturate(7105%) hue-rotate(274deg) brightness(72%) contrast(110%);
+		}
 	}
 }
