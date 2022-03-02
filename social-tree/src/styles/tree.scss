@@ -1,10 +1,13 @@
-$ROCKET-PURPLE: #5903c1;
+$ROCKET-PURPLE: #8023ff;
 $ROCKET-PURPLE-LIGHT:#bb99dd;
 $GREEN-VUE: #41b883;
 
 $PRIMARY: $GREEN-VUE;
 
-@mixin link-tree {
+/*$FILTER: grayscale(100%) brightness(70%) sepia(50%) hue-rotate(-90deg) saturate(400%) contrast(1);*/
+$FILTER: invert(54%) sepia(98%) saturate(7207%) hue-rotate(258deg) brightness(93%) contrast(119%);
+
+@mixin LinkTree {
 	height: 720px;
 	max-height: 100vh;
 
@@ -26,7 +29,7 @@ $PRIMARY: $GREEN-VUE;
 	}
 }
 
-@mixin user-pic {
+@mixin UserPic {
 	height: 10rem;
 	width: 10rem;
 
@@ -45,7 +48,7 @@ $PRIMARY: $GREEN-VUE;
 	}
 }
 
-@mixin user-links {
+@mixin UserLinks {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -66,10 +69,13 @@ $PRIMARY: $GREEN-VUE;
 
 		& span {
 			font-family: Roboto, sans-serif;
+			font-size: 0.9rem;
+			text-align: center;
+			width: 100%;
 		}
 	}
 }
-@mixin user-social {
+@mixin UserSocial {
 	width: 12rem;
 	display: flex;
 	align-items: center;
@@ -94,7 +100,7 @@ $PRIMARY: $GREEN-VUE;
 		border-radius: 4px;
 
 		& img {
-			filter: invert(10%) sepia(67%) saturate(7105%) hue-rotate(274deg) brightness(72%) contrast(110%);
+			filter: $FILTER;
 		}
 	}
 }

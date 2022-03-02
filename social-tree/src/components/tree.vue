@@ -26,10 +26,10 @@
 			<span>Imscreva-se | Show Me The Code</span>
 		</a>
 		<a class="link-card" href="#" >
-			<span>LINK 3</span>
+			<span>...</span>
 		</a>
 		<a class="link-card" href="#" >
-			<span>LINK 4</span>
+			<span>...</span>
 		</a>
 	</div>
 	<div class="user-social">
@@ -84,18 +84,18 @@ const isDarkMode = inject('IS-DARK-MODE')
 @import "@/styles/tree.scss";
 
 .link-tree {
-	@include link-tree;
+	@include LinkTree;
 }
 
 .user-pic {
-	@include user-pic;
+	@include UserPic;
 }
 
 .user-links {
-	@include user-links;
+	@include UserLinks;
 }
 
 .user-social {
-	@include user-social;
+	@include UserSocial;
 }
 </style>

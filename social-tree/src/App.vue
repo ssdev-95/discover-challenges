@@ -3,10 +3,7 @@
 	class="wrapper"
 	:class="{'dark-mode': isDarkMode}"
 >
-  <button @click="toggleTheme">
-		<span v-if="isDarkMode.value">Dark</span>
-		<span v-else>Light</span>
-	</button>
+  <Switcher />
   <Tree />
 </div>
 </template>
@@ -14,8 +11,9 @@
 <script setup>
 import { ref, provide, onBeforeMount } from 'vue'
 import Tree from '@/components/tree.vue'
+import Switcher from '@/components/switcher.vue'
 
-let isDarkMode = ref(true)
+let isDarkMode = ref(false)
 function toggleTheme() {
 	const state = !isDarkMode.value
 
@@ -24,10 +22,13 @@ function toggleTheme() {
 }
 
 onBeforeMount(() => {
-	isDarkMode.value = !!localStorage.getItem('@Tree:theme')
+	const state = !!localStorage.getItem('@Tree:theme')
+	alert(state)
+	isDarkMode.value = state
 })
 
 provide('IS-DARK-MODE', isDarkMode)
+provide('TOGGLE-THEME', toggleTheme)
 </script>
 
 <style lang="scss">
@@ -49,41 +50,10 @@ $BT-PRIMARY: #41b883;
 	justify-content: center;
 
 	background: $BG-LIGHT;
-
-	& > button {
-		padding: 0.25rem 0.5rem;
-		width: 3rem;
-		border-radius: 50px;
-		background: transparent;
-
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-
-		border: 2px solid $BT-PRIMARY;
-
-		transition: all 0.5s ease;
-
-		&:active {
-			filter: invert(10%);
-		}
-
-		& span {
-			color: $BT-PRIMARY;
-		}
-	}
+	transition: background 0.25s cubic-bezier(0.7, 0.7, 0.7, 0.7);
 
 	&.dark-mode {
 		background: $BG-DARK;
-
-		& > button {
-			background: $BT-PRIMARY;
-			border: none;
-
-			& span {
-				color: $BG-LIGHT;
-			}
-		}
 	}
 }
 </style>
