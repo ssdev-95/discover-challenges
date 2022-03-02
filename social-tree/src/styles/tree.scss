@@ -1,4 +1,89 @@
-@mixin link-tree {}
-@mixin user-pic {}
-@mixin user-links {}
-@mixin user-social {}
+$ROCKET-PURPLE: #510391;
+$ROCKET-PURPLE-LIGHT:#bb99dd;
+$GREEN-VUE: #41b883;
+
+$PRIMARY: $GREEN-VUE;
+
+@mixin link-tree {
+	height: 720px;
+	max-height: 100vh;
+
+	width: 500px;
+	max-width: 100vw;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 2rem;
+	overflow-y: auto;
+
+	& > p {
+		color: $PRIMARY;
+		font-family: Roboto, sans-serif;
+	}
+}
+
+@mixin user-pic {
+	height: 10rem;
+	width: 10rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 100%;
+	border: 2px solid $PRIMARY;
+
+	& img {
+		border-radius: inherit;
+		height: inherit;
+		width: inherit;
+		transform: scale(90%);
+	}
+}
+
+@mixin user-links {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.5rem;
+
+	& > .link-card {
+		width: 15rem;
+		height: 3rem;
+		border-radius: 8px;
+		border: 2px solid $PRIMARY;
+		color: $PRIMARY;
+		text-decoration: none;
+		padding: 0.4rem;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		& span {
+			font-family: Roboto, sans-serif;
+		}
+	}
+}
+@mixin user-social {
+	width: 12rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+	& a {
+		width: 30px;
+		height: 30px;
+	}
+
+	& button::disabled {
+		border: 2px solid $PRIMARY;
+		filter: grayscale(.7);
+		width: 30px;
+		height: 30px;
+	}
+}
