@@ -17,12 +17,20 @@ import Countdown from './components/countdown.vue'
 </script>
 
 <style lang="scss">
-:root {
-  $Black: #4D4C59;
-  $Purple: #6C63FF;
-	$LightGrey: #C8C8C8;
-  $TextColor: #9C9AB6;
-	$Background: $Black;
+$Black: #4D4C59;
+$White: #f0f2f5;
+$Purple: #6C63FF;
+$LightGrey: #C8C8C8;
+$TextColor: #9C9AB6;
+$Bg: $White;
+
+$BgBottom: "https://raw.githubusercontent.com/xSallus/discover-challenges/main/countdown/src/assets/bottom-image.svg";
+$BgTop: "https://raw.githubusercontent.com/xSallus/discover-challenges/main/countdown/src/assets/top-image.svg";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 #app {
@@ -31,7 +39,10 @@ import Countdown from './components/countdown.vue'
 	height: 100vh;
 	padding: 1rem;
 
-	background-color: $Background;
+	background-color: $Bg;
+	background-image: url($BgTop), url($BgBottom);
+	background-repeat: no-repeat, no-repeat;
+	background-position: top right, bottom left;
 
 	display: flex;
 	justify-content: space-between;
@@ -41,15 +52,47 @@ import Countdown from './components/countdown.vue'
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
+	
 		gap: 2rem;
+
+		& > h1 {
+			color: $Purple;
+			font-weight: 600;
+		}
+
+		& > p {
+			color: $TextColor;
+			font-size: 1rem;
+			text-wrap: word-wrap;
+
+			@media (max-width:720px) {
+				width: 75vw;
+			}
+		}
 	}
 
 	@media(min-width:1024px) {
 		padding: 3rem;
+		background-position: top center, bottom center;
 	}
 }
 
-.rocket {}
+.rocket {
+	width: 50%;
+	height: auto;
+	@media(max-width:1024px) {
+		display: none;
+	}
+}
 
-.subscribe {}
+.subscribe {
+	width: 10rem;
+	padding: 0.7rem 1.25rem;
+	background: $Purple;
+	border-radius: 0.68rem;
+	border: none;
+	color: $White;
+	text-align: center;
+}
 </style>
