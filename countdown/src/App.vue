@@ -72,7 +72,7 @@ $BgTop: "https://raw.githubusercontent.com/xSallus/discover-challenges/main/coun
 		}
 	}
 
-	@media(min-width:1024px) {
+	@media(min-width:860px) {
 		padding: 3rem;
 		background-position: top center, bottom center;
 	}
@@ -81,7 +81,7 @@ $BgTop: "https://raw.githubusercontent.com/xSallus/discover-challenges/main/coun
 .rocket {
 	width: 50%;
 	height: auto;
-	@media(max-width:1024px) {
+	@media(max-width:860px) {
 		display: none;
 	}
 }
