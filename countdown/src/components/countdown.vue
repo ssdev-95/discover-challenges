@@ -1,25 +1,67 @@
 <template>
+<div>
 <div class="timer">
   <div class="card">
 		<p>Days</p>
-		<p>08</p>
+		<p>{{String(days).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Hours</p>
-		<p>12</p>
+		<p>{{String(hours).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Minutes</p>
-		<p>44</p>
+		<p>{{String(minutes).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Seconds</p>
-		<p>28</p>
+	  <p>{{String(seconds).padStart(2, '0')}}</p>
 	</div>
+</div>
+<p>{{time.value}}</p>
 </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+let time = ref(737068)
+
+let days = 0
+let hours = 0
+let minutes = 0
+let seconds = 0
+
+function desestructTime(timeInSeconds) {
+	const dd = Math.floor(timeInSeconds / (24*60*60))
+
+  const hh = Math.floor((timeInSeconds % (24*60*60))/(60*60))
+
+	const mm = Math.floor(((timeInSeconds % (24*60*60)) % (60*60))/60)
+
+   const ss = (((timeInSeconds % (24*60*60)) % 3600) % 60)
+
+	 return [dd, hh, mm, ss]
+}
+
+/*try {
+setTimeout(() => { console.log('deu bom :D') }, 2000)
+
+do {*/
+	const [dd, hh, mm, ss] = desestructTime(time.value)
+
+	days = dd
+	hours = hh
+	minutes = mm
+	seconds = ss
+/*	
+	setTimeout(() => {
+		time.value = time.value - 1
+	}, 1000)
+} while (time.value > 0)
+} catch (err ) {
+	alert(err)
+}*/
 </script>
 
 <style scoped lang="scss">
