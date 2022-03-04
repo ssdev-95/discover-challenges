@@ -1,36 +1,39 @@
 <template>
 <div>
+<!--
 <div class="timer">
   <div class="card">
 		<p>Days</p>
-		<p>{{String(days).padStart(2, '0')}}</p>
+		<p>{{String(time.days).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Hours</p>
-		<p>{{String(hours).padStart(2, '0')}}</p>
+		<p>{{String(time.hours).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Minutes</p>
-		<p>{{String(minutes).padStart(2, '0')}}</p>
+		<p>{{String(time.minutes).padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Seconds</p>
-	  <p>{{String(seconds).padStart(2, '0')}}</p>
+	  <p>{{String(time.seconds).padStart(2, '0')}}</p>
 	</div>
 </div>
+-->
 <p>{{time.value}}</p>
 </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onUpdated, watch, reactive } from 'vue'
 
-let time = ref(737068)
-
-let days = 0
-let hours = 0
-let minutes = 0
-let seconds = 0
+let time = reactive({
+	init: 737068,
+	days: 0,
+	hours: 0,
+	minutes: 0,
+	seconds: 0
+})
 
 function desestructTime(timeInSeconds) {
 	const dd = Math.floor(timeInSeconds / (24*60*60))
@@ -38,30 +41,27 @@ function desestructTime(timeInSeconds) {
   const hh = Math.floor((timeInSeconds % (24*60*60))/(60*60))
 
 	const mm = Math.floor(((timeInSeconds % (24*60*60)) % (60*60))/60)
+ 
+	const ss = (((timeInSeconds % (24*60*60)) % 3600) % 60)
 
-   const ss = (((timeInSeconds % (24*60*60)) % 3600) % 60)
-
-	 return [dd, hh, mm, ss]
+	return [dd, hh, mm, ss]
 }
 
-/*try {
-setTimeout(() => { console.log('deu bom :D') }, 2000)
+watch(time.init, ()=>{
+	const [dd, hh, mm, ss] = desestructTime(init)
+	time.days = dd
+	time.hours = hh
+	time.minutes = mm
+	time.seconds = ss
+})
 
-do {*/
-	const [dd, hh, mm, ss] = desestructTime(time.value)
-
-	days = dd
-	hours = hh
-	minutes = mm
-	seconds = ss
-/*	
-	setTimeout(() => {
-		time.value = time.value - 1
-	}, 1000)
-} while (time.value > 0)
-} catch (err ) {
-	alert(err)
-}*/
+onUpdated(()=>{
+	if (time.init > 0) {
+		setTimeout(() => {
+			time.init -= 1
+		}, 1000)
+	}
+})
 </script>
 
 <style scoped lang="scss">
