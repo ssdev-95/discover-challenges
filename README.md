@@ -15,3 +15,7 @@ Open the folder of the desired project and follow the instructions in the readme
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 |            Countdown             |                      [Readme](https://github.com/xSallus/discover-challenges/tree/main/countdown)                   |      
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+> All challenges here were made using VueJS, clone it at your own risk
+> Don't jump step if you're a beginner :D
