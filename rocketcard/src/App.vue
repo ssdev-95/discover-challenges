@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-	  <h1>RocketCard</h1>
+	  <RocketCard />
 	</div>
 </template>
 
 <script>
+import RocketCard from "./components/card.vue"
+
 export default {
   name: 'App',
-  components: {}
+  components: { RocketCard }
 }
 </script>
 
