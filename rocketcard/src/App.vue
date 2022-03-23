@@ -2,21 +2,34 @@
   <div id="app">
 	  <div>
 			<p>Compartilhe seu #rocketcard</p>
-			<RocketCard bgcolor="#000"/>
+			<RocketCard :bgcolor="color"/>
 	  </div>
 		<div>
 		  <p>Customizar Rocketcard</p>
-			<button>Gerar background</button>
+			<button @click="toggle">Gerar background</button>
 		</div>
 	</div>
 </template>
 
 <script>
-import RocketCard from "./components/card.vue"
+import RocketCard from './components/card.vue'
+import { generateColor } from './helpers/color.js'
 
 export default {
   name: 'App',
-  components: { RocketCard }
+  components: { RocketCard },
+	data: () => {
+		let color = '#000'
+
+		return { color };
+	},
+	methods: {
+		toggle: () => {
+		  const color = generateColor()
+			alert(color)
+		  this.color = color
+		}
+	}
 }
 </script>
 
