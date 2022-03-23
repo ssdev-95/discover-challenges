@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-	  <RocketCard />
+	  <div>
+			<p>Compartilhe seu #rocketcard</p>
+			<RocketCard bgcolor="#000"/>
+	  </div>
+		<div>
+		  <p>Customizar Rocketcard</p>
+			<button>Gerar background</button>
+		</div>
 	</div>
 </template>
 
@@ -14,12 +21,21 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/styles/colors.mixin.scss";
+@import "./assets/styles/home.mixin.scss";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	color: $white;
+
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+	@include App;
 }
 </style>

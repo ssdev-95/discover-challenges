@@ -1,0 +1,111 @@
+@import "./colors.mixin.scss";
+
+@mixin Wrapper {
+	width: 450px;
+	height: 900px;
+
+	max-width: 90vw;
+	max-height: 70vh;
+
+	border-radius: 90px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin Card {
+	width: 92%;
+	height: 92%;
+
+	padding: 1.5rem 2.25rem;
+
+	background: $bg;
+
+	border-radius: inherit;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	position: relative;
+
+	header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+
+		width: fit-content;
+
+		p {
+			font-size: 1.25rem;
+		}
+
+		& div.seal {
+			width: 40px;
+			height: 40px;
+			padding: 5px;
+			border-radius: 100%;
+			border: 1px solid $white;
+
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
+
+	& > div.user-info {
+		width: fit-content;
+
+		padding: 1.25rem;
+		background: $gradient;
+		border-radius: 32px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 0.5rem;
+
+		margin-top: auto;
+		transform: translateY(-2rem);
+		z-index: 5;
+
+		span {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+		}
+	}
+
+	& .avatar {
+		position: absolute;
+		height: 300px;
+		width: 300px;
+
+		border-radius: 100%;
+		border: 6px solid $purple;
+
+		transform: translateX(3rem) translateY(30%);
+	}
+
+	footer {
+		display: flex;
+		gap: 1rem;
+		align-self: flex-end;
+
+		width: fit-content;
+
+		p {
+			font-size: 1.25rem;
+		}
+
+		img {
+			width: 30px;
+			height: 30px;
+    }
+	}
+}
+

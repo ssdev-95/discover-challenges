@@ -1,0 +1,38 @@
+@import "./colors.mixin.scss";
+
+@mixin App {
+	width: 100vw;
+	height: 100vh;
+	background: $bg;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+
+	& > div {
+		&:first-of-type p {
+			margin: 0 auto 1rem;
+		}
+
+		&:last-of-type button {
+			background: $bg-alt;
+			padding: 0.85rem 1.8rem;
+			margin-top: 1.25rem;
+
+			border: 0;
+			border-radius: 32px;
+
+			&::active {
+				box-shadow: 2px 2px 2px 2px $white;
+			}
+		}
+	}
+
+	@media(min-width:860px) {
+		flex-direction: row;
+		gap: 5rem;
+	}
+}
