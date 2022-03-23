@@ -2,7 +2,7 @@
   <div id="app">
 	  <div>
 			<p>Compartilhe seu #rocketcard</p>
-			<RocketCard :bgcolor="color"/>
+			<RocketCard />
 	  </div>
 		<div>
 		  <p>Customizar Rocketcard</p>
@@ -18,16 +18,18 @@ import { generateColor } from './helpers/color.js'
 export default {
   name: 'App',
   components: { RocketCard },
-	data: () => {
-		let color = '#000'
-
-		return { color };
-	},
 	methods: {
 		toggle: () => {
 		  const color = generateColor()
-			alert(color)
-		  this.color = color
+			document
+			  .querySelector('.wrapper')
+				.style
+				.backgroundColor = color
+
+			document
+			  .querySelector('.avatar')
+				.style
+				.backgroundColor = color
 		}
 	}
 }

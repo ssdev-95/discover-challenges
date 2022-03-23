@@ -12,6 +12,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	background-color: $bg-alt;
 }
 
 @mixin Card {
