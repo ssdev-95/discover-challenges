@@ -11,7 +11,7 @@
 						alt="selo rocketseat de qualidade"
 					/>
 				</div>
-				<p>birobirobiro</p>
+				<p>{{user.login}}</p>
 			</header>
 
 			<div class="user-info">
@@ -20,42 +20,42 @@
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/followers.svg"
 						alt="svg icon"
 					/>
-					999 Followers
+					{{user.followers}} Followers
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg"
 						alt="svg icon"  
 	        />
-					150 Following
+					{{user.following}} Following
 	      </span>
 				<span>
 				  <img
 					  src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/repository.svg"
 					  alt="svg icon"
 					/>
-					45 Repisitories
+					{{user.public_repos}} Repositories
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/company.svg"
 						alt="svg icon"
 					/>
-					@Rocketseat
+					{{user.company}}
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/location.svg"
 						alt="svg icon"
 					/>
-					Bebedouro
+					{{user.location}}
 				</span>
 			</div>
 
 			<img
 				class="avatar"
-				src="https://avatars.githubusercontent.com/u/22185823?v=4    "
-				alt="github_user_birobirobiro"
+				:src="user.avatar_url"
+				alt="github_user_avatar"
 			/>
 
 			<footer>
@@ -70,23 +70,36 @@
 </template>
 
 <script>
-const api_uri = 'https://api.github.com/users/'
+const api_uri = 'https://api.github.com/users'
+const index = '@rocketcard:profile'
 
 export default {
   name: 'Card',
-	props: ['bgcolor'],
 	beforeMount: async () => {
-		const [, login] = String(window.location).split('=')
-		const res = await fetch(`${api_uri}${login}`)
+	  const { location } = window
+		const [, login] = String(location).split('=')
+		const res = await fetch(`${api_uri}/${login}`)
 		const user = await res.json()
-		this.user = user
 
-		alert(JSON.stringify(user))
+		localStorage.setItem(index, JSON.stringify(user))
 	},
-	data: (props) => {
-		let user = {}
+	data: () => {
+	  const stored = localStorage.getItem(index)
+		const user = stored ? JSON.parse(stored) : {
+			login: 'N/A',
+  		avatar_url: '',
+  		company: 'N/A',
+  		location: 'N/A',
+  		public_repos: '00',
+  		followers: '00',
+  		following: '00'
+		}
 
-		return { props, user }
+		setTimeout(()=>{
+		  alert(stored)
+		}, 3000)
+
+		return { user }
 	}
 }
 </script>
