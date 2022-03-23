@@ -74,35 +74,25 @@ const api_uri = 'https://api.github.com/users'
 const index = '@rocketcard:profile'
 
 export default {
-  name: 'Card',
-	beforeMount: async () => {
-	  const { location } = window
-		const [, login] = String(location).split('=')
+  name: 'RocketCard',
+	async beforeMount() {
+	  const url = String(window.location)
+		const [, login] = url.split('=')
 		const res = await fetch(`${api_uri}/${login}`)
 		const user = await res.json()
 
 		localStorage.setItem(index, JSON.stringify(user))
 	},
-	data: () => {
+	data() {
 	  const stored = localStorage.getItem(index)
-		const user = stored ? JSON.parse(stored) : {
-			login: 'N/A',
-  		avatar_url: '',
-  		company: 'N/A',
-  		location: 'N/A',
-  		public_repos: '00',
-  		followers: '00',
-  		following: '00'
+		alert(stored)
+		return {
+		  user: JSON.parse(stored)
 		}
-
-		setTimeout(()=>{
-		  alert(stored)
-		}, 3000)
-
-		return { user }
 	}
 }
 </script>
+
 <style lang="scss">
 @import "../assets/styles/card.mixin.scss";
 
