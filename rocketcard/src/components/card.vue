@@ -1,8 +1,5 @@
 <template>
-  <section
-		class="wrapper"
-		v-bind:style="{ backgroundColor: props.bgcolor }"
-	>
+  <section class="wrapper">
 	  <div class="card">
 		  <header>
 				<div class="seal">
@@ -11,7 +8,7 @@
 						alt="selo rocketseat de qualidade"
 					/>
 				</div>
-				<p>birobirobiro</p>
+				<p>{{ user.login }}</p>
 			</header>
 
 			<div class="user-info">
@@ -20,41 +17,41 @@
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/followers.svg"
 						alt="svg icon"
 					/>
-					1000 Followers
+					{{ user.followers }} Followers
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg"
 						alt="svg icon"  
 	        />
-					54 Following
+					{{ user.following }} Following
 	      </span>
 				<span>
 				  <img
 					  src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/repository.svg"
 					  alt="svg icon"
 					/>
-					41 Repositories
+					{{ user.public_repos }} Repositories
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/company.svg"
 						alt="svg icon"
 					/>
-					@Rocketseat
+					{{ user.company }}
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/location.svg"
 						alt="svg icon"
 					/>
-					Brasil
+					{{ user.location }}
 				</span>
 			</div>
 
 			<img
 				class="avatar"
-				src="https://github.com/birobirobiro.png"
+				:src="user.avatar_url"
 				alt="github_user_avatar"
 			/>
 
@@ -87,19 +84,29 @@ export default {
 	  const stored = localStorage.getItem(index)
 
 		if (!stored) {
-		  return {
-			  login: 'N/A',
-				avatar_url: 'https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg',
-				public_repos: 'N/A',
-				followers: 'N/A',
-				following: 'N/A',
-				company: 'N/A',
-				location: 'N/A'
+		  return { 
+			  user: {
+		   	  login: 'N/A',
+	  			avatar_url: 'https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg',
+	   			public_repos: 'N/A',
+	  			followers: 'N/A',
+	  			following: 'N/A',
+  				company: 'N/A',
+	  			location: 'N/A'
+				}
 			}
 		}
-
+		const parsed = JSON.parse(stored)
 		return {
-		  user: JSON.parse(stored)
+		  user: {
+			  login: parsed.login ?? 'N/A',
+				avatar_url: parsed.avatar_url ?? 'https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg',
+				public_repos: parsed.public_repos ?? 'N/A',
+				followers: parsed.followers ?? 'N/A',
+				following: parsed.following ?? 'N/A',
+				company: parsed.company ?? 'N/A',
+				location: parsed.location ?? 'N/A'   
+	    }
 		}
 	}
 }

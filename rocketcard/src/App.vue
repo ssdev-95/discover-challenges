@@ -29,7 +29,7 @@ export default {
 			document
 			  .querySelector('.avatar')
 				.style
-				.backgroundColor = color
+				.borderColor = color
 		}
 	}
 }
