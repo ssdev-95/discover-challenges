@@ -11,7 +11,7 @@
 						alt="selo rocketseat de qualidade"
 					/>
 				</div>
-				<p>{{user.login}}</p>
+				<p>birobirobiro</p>
 			</header>
 
 			<div class="user-info">
@@ -20,41 +20,41 @@
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/followers.svg"
 						alt="svg icon"
 					/>
-					{{user.followers}} Followers
+					1000 Followers
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg"
 						alt="svg icon"  
 	        />
-					{{user.following}} Following
+					54 Following
 	      </span>
 				<span>
 				  <img
 					  src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/repository.svg"
 					  alt="svg icon"
 					/>
-					{{user.public_repos}} Repositories
+					41 Repositories
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/company.svg"
 						alt="svg icon"
 					/>
-					{{user.company}}
+					@Rocketseat
 				</span>
 				<span>
 					<img
 						src="https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/location.svg"
 						alt="svg icon"
 					/>
-					{{user.location}}
+					Brasil
 				</span>
 			</div>
 
 			<img
 				class="avatar"
-				:src="user.avatar_url"
+				src="https://github.com/birobirobiro.png"
 				alt="github_user_avatar"
 			/>
 
@@ -85,7 +85,19 @@ export default {
 	},
 	data() {
 	  const stored = localStorage.getItem(index)
-		alert(stored)
+
+		if (!stored) {
+		  return {
+			  login: 'N/A',
+				avatar_url: 'https://raw.githubusercontent.com/xSallus/discover-challenges/main/rocketcard/src/assets/following.svg',
+				public_repos: 'N/A',
+				followers: 'N/A',
+				following: 'N/A',
+				company: 'N/A',
+				location: 'N/A'
+			}
+		}
+
 		return {
 		  user: JSON.parse(stored)
 		}
