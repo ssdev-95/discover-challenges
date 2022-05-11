@@ -1,64 +1,50 @@
 <template>
 <div>
-<!--
+
 <div class="timer">
   <div class="card">
 		<p>Days</p>
-		<p>{{String(time.days).padStart(2, '0')}}</p>
+		<p>{{spreadTime.DD.padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Hours</p>
-		<p>{{String(time.hours).padStart(2, '0')}}</p>
+		<p>{{spreadTime.HH.padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Minutes</p>
-		<p>{{String(time.minutes).padStart(2, '0')}}</p>
+		<p>{{spreadTime.MN.padStart(2, '0')}}</p>
 	</div>
 	<div class="card">
 		<p>Seconds</p>
-	  <p>{{String(time.seconds).padStart(2, '0')}}</p>
+	  <p>{{spreadTime.SS.padStart(2, '0')}}</p>
 	</div>
 </div>
--->
-<p>{{time.value}}</p>
+
+<!--<p>{{initTime}}s</p>-->
 </div>
 </template>
 
 <script setup>
-import { onUpdated, watch, reactive } from 'vue'
+import { watchEffect, watch } from 'vue'
 
-let time = reactive({
-	init: 737068,
-	days: 0,
-	hours: 0,
-	minutes: 0,
-	seconds: 0
+import {
+  desestructTime,
+	spreadTime,
+	initTime
+} from '../composables/timer'
+
+watch(initTime, ()=>{
+	const [dd, hh, mm, ss] = desestructTime(initTime.value)
+	spreadTime.DD = dd.toString()
+	spreadTime.HH = hh.toString()
+	spreadTime.MN = mm.toString()
+	spreadTime.SS= ss.toString()
 })
 
-function desestructTime(timeInSeconds) {
-	const dd = Math.floor(timeInSeconds / (24*60*60))
-
-  const hh = Math.floor((timeInSeconds % (24*60*60))/(60*60))
-
-	const mm = Math.floor(((timeInSeconds % (24*60*60)) % (60*60))/60)
- 
-	const ss = (((timeInSeconds % (24*60*60)) % 3600) % 60)
-
-	return [dd, hh, mm, ss]
-}
-
-watch(time.init, ()=>{
-	const [dd, hh, mm, ss] = desestructTime(init)
-	time.days = dd
-	time.hours = hh
-	time.minutes = mm
-	time.seconds = ss
-})
-
-onUpdated(()=>{
-	if (time.init > 0) {
+watchEffect(()=>{
+	if (initTime.value > 0) {
 		setTimeout(() => {
-			time.init -= 1
+			initTime.value -= 1
 		}, 1000)
 	}
 })
