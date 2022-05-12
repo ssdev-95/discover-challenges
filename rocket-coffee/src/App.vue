@@ -22,7 +22,11 @@ import Main from './components/Main.vue'
 #app {
   height: 100vh;
 	width: 100vw;
-	background: $bg;
+	background-color: $bg;
+	background-image: url(assets/rocket-coffee.png);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: 90%;
 }
 
 a {

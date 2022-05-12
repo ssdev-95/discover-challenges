@@ -24,14 +24,31 @@ import Navigation from './Navigation.vue'
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background: red;
 
 	div {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
+		width: 1248px;
+		max-width: 98vw;
+
 		a {
 			font-size: 18px;
+			color: $text;
+			text-decoration: none;
+			border-bottom: 2px solid $text;
+		}
+
+		button {
+			display: none;
+		}
+	}
+
+	@media(min-width: 1024px) {
+		div > button {
+			display: flex;
 		}
 	}
 }
