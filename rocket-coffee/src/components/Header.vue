@@ -1,6 +1,7 @@
-<script lang="ts">
-import Button from './Button.vue'
+<script setup lang="ts">
 import Logo from './Logo.vue'
+import Button from './Button.vue'
+import MenuButton from './MenuButton.vue'
 import Navigation from './Navigation.vue'
 </script>
 
@@ -10,6 +11,7 @@ import Navigation from './Navigation.vue'
 		<Logo />
   	<Navigation />
 		<Button />
+		<MenuButton />
 	</div>
 </header>
 </template>
@@ -24,29 +26,22 @@ import Navigation from './Navigation.vue'
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: red;
 
 	div {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
 
 		width: 1248px;
 		max-width: 98vw;
+		padding: 0.2rem 1.5rem;
 
-		a {
-			font-size: 18px;
-			color: $text;
-			text-decoration: none;
-			border-bottom: 2px solid $text;
-		}
-
-		button {
+		& > #get-coffee-button {
 			display: none;
 		}
 	}
 
-	@media(min-width: 1024px) {
+	@media(min-width: 860px) {
 		div > button {
 			display: flex;
 		}

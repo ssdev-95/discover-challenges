@@ -43,20 +43,13 @@ import Button from './Button.vue'
 		font-size: 50px;
 	}
 
-	code {
-		/*Old way to outline text*/
-		/*text-stroke: 2px $purple;
-		text-fill-color: $bg;
-
-		-webkit-text-stroke: 2px $purple;
-		-webkit-text-fill-color: $bg;*/
-	
+	code {	
 		font-size: 50px;
 		color: $bg;
 		text-shadow: -1px -1px 0 $purple, 1px -1px 0 $purple, -1px 1px 0 $purple, 1px 1px 0 $purple;
 	}
 
-	@media(min-width: 1024px) {
+	@media(min-width: 860px) {
 		h1,  code {
 			font-size: 80px;
 		}

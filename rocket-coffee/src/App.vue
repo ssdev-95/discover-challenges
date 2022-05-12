@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Header from './components/Header.vue'
 import Main from './components/Main.vue'
+import Toast from './components/Toast.vue'
 </script>
 
 <template>
   <Header />
   <Main />
+	<Toast />
 </template>
 
 <style lang="scss">
@@ -31,5 +33,17 @@ import Main from './components/Main.vue'
 
 a {
 	text-decoration: none;
+}
+
+button {
+	&:active {
+		filter: brightness(0.68);
+	}
+
+	@media(min-width: 1024px) {
+		&:hover {
+			filter: brightness(0.68);
+		}
+	}
 }
 </style>

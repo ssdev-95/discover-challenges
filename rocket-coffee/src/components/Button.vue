@@ -1,5 +1,12 @@
+<script setup lang="ts" >
+import { showToast } from '../composables/toast'
+</script>
+
 <template>
-  <button>
+  <button
+		id="get-coffee-button"
+		@click="showToast"
+	>
 	   GET MY COFFEE!
 		 <img src="../assets/arrow.svg" alt="Arrow left icon" />
 	</button>
@@ -8,7 +15,7 @@
 <style scoped lang="scss">
 @import "../colors.scss";
 
-button {
+#get-coffee-button {
 	background: rgba(0,0,0,0);
 	border: 2px solid $purple;
 	border-radius: 0.5rem;
@@ -25,9 +32,10 @@ button {
 	width: 174.12px;
 	height: 35px;
 
-	@media(min-width:1024px) {
+	@media(min-width: 860px) {
 		height: 172px;
 		width: 37px;
+
 		img {
 			display: none;
 		}
