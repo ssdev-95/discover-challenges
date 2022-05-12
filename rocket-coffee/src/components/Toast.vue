@@ -27,10 +27,10 @@ import { isOpen } from '../composables/toast'
 
 	border: 3px solid $purple;
 	border-radius: 0.25rem;
-	background: rgba(149, 105, 251, 0.8);
+	background: rgba(149, 105, 251, 0.68);
 
 	position: fixed;
-	bottom: -16vh;
+	bottom: -100px;
 	left: 50vw;
 
 	transform: translateX(-50%);
