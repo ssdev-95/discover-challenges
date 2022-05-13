@@ -23,6 +23,8 @@ import { selectedRole } from './composables/menu'
 	font-weight: 500;
   text-align: center;
 	color: $text-color;
+
+	transform-origin: center left;
 }
 
 #app {
