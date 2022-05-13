@@ -8,8 +8,8 @@ import RoleButton from './role-button.vue'
 <section id="menu-wrapper">
 	<header :class="!isMenuOpen ? 'reset' : ''">
 		<img
-			v-if="isMenuOpen"
 			src="../assets/logo.svg"
+			:style="isMenuOpen ? 'width:initial;' : 'width: 0;'"
 			alt="Vet logo icon"
 		>
 	  <MenuButton />
@@ -22,15 +22,16 @@ import RoleButton from './role-button.vue'
 		/>
 	</div>
 	<footer :class="!isMenuOpen ? 'reset' : ''">
-		<img
-		  v-if="isMenuOpen"
-			src="https://avatars.githubusercontent.com/u/14876382?v=4"
-			alt="User profike picture: Birobirobiro "
-		/>
-	  <p v-if="isMenuOpen">
-			Tio Yan
-			<span>Best Ademiro</span>
-		</p>
+		<div :style="isMenuOpen ? 'width:initial;' : 'width: 0;'">
+			<img
+				src="https://avatars.githubusercontent.com/u/14876382?v=4"
+				alt="User profike picture: Birobirobiro "
+			/>
+			<p>
+				Tio Yan
+				<span>Best Ademiro</span>
+			</p>
+		</div>
 	  <img
 			src="../assets/log-out.svg"
 			alt="log out button"
@@ -48,7 +49,7 @@ import RoleButton from './role-button.vue'
 	overflow-y: auto;
 
 	background: $green;
-	transition: all 1.5s cubic-bezier(0.7, 0.7, 0.7, 0.7);
+	transition: width 0.5s cubic-bezier(0.7, 0.7, 0.7, 0.7);
 
 	header {
 		width: 100%;
@@ -58,6 +59,7 @@ import RoleButton from './role-button.vue'
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
 
 		&.reset {
 			justify-content: center;
@@ -74,6 +76,8 @@ import RoleButton from './role-button.vue'
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
+
+		transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
 
 		gap: 1rem;
 
@@ -98,6 +102,8 @@ import RoleButton from './role-button.vue'
 		justify-content: flex-start;
 		gap: 0.5rem;
 
+		transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
+
 		&.reset {
 			justify-content: center;
 
@@ -105,28 +111,35 @@ import RoleButton from './role-button.vue'
 				margin: 0;
 			}
 		}
-
-		p {
+		
+		& > div {
 			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: flex-start;
-
-			span {
-				font-weight: 400;
-				font-size: 90%;
-			}
-		}
-
-		img {
 			height: 100%;
-			width: auto;
-			border-radius: 0.85rem;
+			overflow: hiddeb;
 
-			&:last-child {
-				margin-left: 1.5rem;
-				height: 2.28rem;
-			}
+  		p {
+  			display: flex;
+  			flex-direction: column;
+  			justify-content: space-evenly;
+  			align-items: flex-start;
+
+  			span {
+  				font-weight: 400;
+  				font-size: 90%;
+  			}
+  		}
+
+  		img {
+  			height: 2.5rem;
+  			width: auto;
+  			border-radius: 0.85rem;
+		  }
+		}
+		
+		img {
+			width: auto;
+			margin-left: 1.5rem;
+			height: 2.28rem;
 		}
 	}
 }

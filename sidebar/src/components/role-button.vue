@@ -14,12 +14,16 @@ const src = `../assets/${role.icon}`
 	@click="() => toggleSelectedRole(role.name)"
 	id="role-button"
 	:class="selectedRole === role.name ? 'active' : ''"
+	:style="isMenuOpen ? 'gap: 1rem;' : 'gap: 0;'"
 >
 	<img
 	  src="../assets/user.svg"
 		:alt="src"
 	/>
-	<span v-if="isMenuOpen">{{role.name}}</span>
+	<span :style="!isMenuOpen ? 'width:0;' : 'width:8rem;'">
+	  <!--span class="pl-2"></span-->
+		{{role.name}}
+	</span>
 </button>
 </template>
 
@@ -30,14 +34,24 @@ const src = `../assets/${role.icon}`
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	gap: 1rem;
 
-	width: 100%;
-	height: 2.5rem;
-	padding: 1.75rem 1rem;
+	height: 3.45rem;
+	padding: 0 1rem;
+	overflow: hidden;
 
 	font-size: 1rem;
 	border-radius: 0.85rem;
+	transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
+
+	& > span {
+		text-align: left;
+		overflow: hidden;
+		transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
+
+		.pl-2 {
+			padding-left: 4px
+		}
+	}
 
 	&.active {
 		background: $light-green;
