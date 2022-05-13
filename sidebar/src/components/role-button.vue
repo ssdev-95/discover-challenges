@@ -2,27 +2,28 @@
 import { 
 	isMenuOpen, toggleSelectedRole, selectedRole
 } from '../composables/menu'
-const { role } = defineProps<{
-	role: { name: string, icon: string }
+const { role, icon } = defineProps<{
+	role: string, icon: string
 }>()
 
-const src = `../assets/${role.icon}`
+/*const src = require(icon)
+alert(JSON.stringify(src))*/
 </script>
 
 <template>
 <button
-	@click="() => toggleSelectedRole(role.name)"
+	@click="() => toggleSelectedRole(role)"
 	id="role-button"
-	:class="selectedRole === role.name ? 'active' : ''"
+	:class="selectedRole === role ? 'active' : ''"
 	:style="isMenuOpen ? 'gap: 1rem;' : 'gap: 0;'"
 >
 	<img
-	  src="../assets/user.svg"
+	  :src="icon"
 		:alt="src"
 	/>
-	<span :style="!isMenuOpen ? 'width:0;' : 'width:8rem;'">
+	<span :style="!isMenuOpen ? 'width:0;' : 'width:8.2rem;'">
 	  <!--span class="pl-2"></span-->
-		{{role.name}}
+		{{role}}
 	</span>
 </button>
 </template>

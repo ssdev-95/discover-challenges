@@ -9,30 +9,34 @@ import RoleButton from './role-button.vue'
 	<header :class="!isMenuOpen ? 'reset' : ''">
 		<img
 			v-if="isMenuOpen"
-			src="../assets/logo.svg"
+			src="/assets/logo.svg"
 			alt="Vet logo icon"
 		>
 	  <MenuButton />
 	</header>
 	<div :class="!isMenuOpen ? 'reset' : ''">
 		<RoleButton
-			v-for="role of roles"
-			:key="role.name"
-			:role="role"
+			v-for="({ name, icon }) of roles"
+			:key="name"
+			:role="name"
+			:icon="'/assets/'+icon"
 		/>
 	</div>
 	<footer :class="!isMenuOpen ? 'reset' : ''">
+		<div
+			v-if="isMenuOpen"
+		>
 		<img
-		  v-if="isMenuOpen"
 			src="https://avatars.githubusercontent.com/u/14876382?v=4"
-			alt="User profike picture: Birobirobiro "
+			alt="User profike picture: Birobirobiro"
 		/>
-	  <p v-if="isMenuOpen">
+	  <p>
 			Tio Yan
-			<span>Best Ademiro</span>
+			<span>Ademiro</span>
 		</p>
+		</div>
 	  <img
-			src="../assets/log-out.svg"
+			src="/assets/log-out.svg"
 			alt="log out button"
 		/>
 	</footer>
@@ -64,10 +68,10 @@ import RoleButton from './role-button.vue'
 		}
 	}
 
-	div {
+	& > div {
 		width: 100%;
 		padding: 1rem;
-		height: calc(100% - 8rem);
+		height: calc(100vh - 8rem);
 
 
 		display: flex;
@@ -95,38 +99,48 @@ import RoleButton from './role-button.vue'
 
 		display: flex;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: space-between;
 		gap: 0.5rem;
+
+		overflow: hidden;
 
 		&.reset {
 			justify-content: center;
+		}
 
-			img:last-child {
-				margin: 0;
+		& > div {
+		  display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+
+			height: 4rem;
+			overflow: hidden;
+
+			transition: width 0.5s cubic-bezier(0.7, 0.7, 0.7, 0.7);
+	
+		  img {
+				height: 3rem;
+				width: auto;
+				border-radius: 0.85rem;
+			}
+	
+		  p {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				align-items: flex-start;
+
+				span {
+					font-weight: 400;
+					font-size: 90%;
+				}
 			}
 		}
 
-		p {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			align-items: flex-start;
-
-			span {
-				font-weight: 400;
-				font-size: 90%;
-			}
-		}
-
-		img {
-			height: 100%;
+		& >img {
 			width: auto;
-			border-radius: 0.85rem;
-
-			&:last-child {
-				margin-left: 1.5rem;
-				height: 2.28rem;
-			}
+			height: 2.28rem;
 		}
 	}
 }

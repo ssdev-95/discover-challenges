@@ -6,7 +6,7 @@ import { toggleMenu } from '../composables/menu'
 <button>
 	<img
 		@click="toggleMenu"
-	  src="../assets/menu.svg"
+	  src="/assets/menu.svg"
 		alt="Menu button icon"
 	/>
 </button>
