@@ -9,7 +9,7 @@ import { isOpen } from '../composables/toast'
 >
 	<div id="icon">
 		<img
-			src="../assets/panda.svg"
+			src="../assets/cup.png"
 			alt="MIT icon"
 		/>
 	</div>
@@ -43,7 +43,7 @@ import { isOpen } from '../composables/toast'
 	                    "icn btxt btxt btxt btxt";
 
 	&.shown {
-		bottom: 15vh;
+		bottom: 17vh;
 	}
 
 	& > span {
@@ -71,8 +71,8 @@ import { isOpen } from '../composables/toast'
 
 		& > img {
 			height: 90%;
-			width: 90%;
-			filter: invert(100%);
+			width: auto;
+			/*filter: invert(100%);*/
 		}
 	}
 }
