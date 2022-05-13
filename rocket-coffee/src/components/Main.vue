@@ -33,7 +33,7 @@ import Button from './Button.vue'
 	text-align: center;
 
 	p {
-		font-size: 2rem;
+		font-size: 30px;
 		max-width: 70vw;
 		margin-bottom: 2rem;
 	}

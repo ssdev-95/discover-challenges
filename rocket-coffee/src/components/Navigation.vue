@@ -38,6 +38,7 @@ import { isOpen, toggleMenu } from '../composables/menu'
 
 	& > a {
 	  color: $text;
+		font-size: 11px;
 	}
 
 	@media(max-width: 859px) {
@@ -56,6 +57,10 @@ import { isOpen, toggleMenu } from '../composables/menu'
 
 		height: 100%;
 		width: fit-content;
+
+		& > a {
+			font-size: 14px;
+		}
 	}
 }
 </style>

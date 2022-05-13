@@ -32,6 +32,11 @@ import { showToast } from '../composables/toast'
 	width: 174.12px;
 	height: 35px;
 
+	img {
+	  height: 11px;
+		width: auto;
+	}
+
 	@media(min-width: 860px) {
 		height: 172px;
 		width: 37px;
