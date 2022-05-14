@@ -1,21 +1,25 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { Ref, ref, watch } from 'vue'
 
 import {
 	useMovie, getRandomMovieID,  movie
 } from './composables/useMovie'
 
+const isLoading:Ref<boolean> = ref(false)
+
 async function fetchMovie() {
 	const id = getRandomMovieID()
+	isLoading.value = true
 	await useMovie(id)
 }
 
-watch(movie, () => {
-	//if(movie && movie.Response) {
-		alert(
-			JSON.stringify(movie) ?? 'Deu ruim na reatividade'
-		)
-	//}
+watch(isLoading, () => {
+	if(isLoading) {
+		setTimeout(() => {
+			isLoading.value = false
+			//alert(movie.Response)
+		}, 3000)
+	}
 })
 </script>
 
@@ -28,10 +32,14 @@ watch(movie, () => {
 	  <p>Don't know what to watch next?</p>
 	</header>
 
-	<main v-if="movie">
+	<main v-if="movie && !isLoading">
 		<img v-if="movie?.Response" :src="movie?.Poster" alt="Movie poster" />
 		<img v-else src="/poster.png" alt="Failed to bring movie info" />
 	</main>
+
+	<div v-if="!movie && isLoading" class="spinner-wrapper">
+		<div />
+	</div>
 
 	<footer>
 	  <button @click="fetchMovie">
@@ -72,6 +80,7 @@ $gradient: linear-gradient(235deg, $red 1%, $black, $blue 95%);
 	width: 100vw;
 	background: $gradient;
 	color: $algo2;
+	overflow-y: scroll;
 
 	header {
 		padding: 3rem 0;
@@ -84,6 +93,7 @@ $gradient: linear-gradient(235deg, $red 1%, $black, $blue 95%);
 
 	footer {
 		padding: 0 1rem;
+		margin-bottom: 4rem;
 
 		button {
 			background: $algo2;
@@ -115,5 +125,44 @@ $gradient: linear-gradient(235deg, $red 1%, $black, $blue 95%);
 			filter: brightness(0.68);
 		}
 	}
+}
+
+.spinner-wrapper {
+	height: 4rem;
+	width: 4rem;
+	margin: 0 auto 4rem;
+	border-radius: 100%;
+
+	div {
+		width: inherit;
+		height: inherit;
+		border-radius: inherit;
+
+		position: relative;
+		background: $gradient;
+
+		animation: SPIN 750ms infinite cubic-bezier(0.7,0.7,0.7,0.7);
+
+		&::after {
+			content: "";
+			width: 85%;
+			height: 85%;
+			border-radius: inherit;
+	
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 3;
+
+			transform: translate(-50%, -50%);
+			background: $black;
+		}
+	}
+}
+
+@keyframes SPIN {
+  0% { transform: rotate(0deg); }
+	50% { transform: rotate(180deg); }
+	100% { transform: rotate(360deg); }
 }
 </style>
