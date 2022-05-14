@@ -2,7 +2,8 @@
 import { Ref, ref, watch } from 'vue'
 
 import {
-	useMovie, getRandomMovieID,  movie
+	useMovie, getRandomMovieID, hasFailed,
+	movieTitle, moviePoster, moviePlot
 } from './composables/useMovie'
 
 const isLoading:Ref<boolean> = ref(false)
@@ -17,7 +18,6 @@ watch(isLoading, () => {
 	if(isLoading) {
 		setTimeout(() => {
 			isLoading.value = false
-			//alert(movie.Response)
 		}, 3000)
 	}
 })
@@ -32,12 +32,39 @@ watch(isLoading, () => {
 	  <p>Don't know what to watch next?</p>
 	</header>
 
-	<main v-if="movie && !isLoading">
-		<img v-if="movie?.Response" :src="movie?.Poster" alt="Movie poster" />
-		<img v-else src="/poster.png" alt="Failed to bring movie info" />
+	<main v-if="!isLoading">
+	  <div v-if="!hasFailed">
+			<img
+				v-if="moviePoster"
+				:src="moviePoster"
+				loading="lazy"
+				alt="N/A"
+			/>
+			<div>
+				<h1 v-if="movieTitle">{{movieTitle}}</h1>
+				<p v-if="moviePlot" class="justify">
+				  {{moviePlot}}
+				</p>
+			</div>
+		</div>
+
+		<div v-else>
+			<img
+				src="/poster.png"
+				loading="lazy"
+				alt="Failed to bring movie info"
+			/>
+			<p>
+				Oops, today isn't a nice day to watch some movie, do ya?
+				<p>Autodevs, let's code!</p>
+			</p>
+		</div>
 	</main>
 
-	<div v-if="!movie && isLoading" class="spinner-wrapper">
+	<div
+		v-else
+		class="spinner-wrapper"
+	>
 		<div />
 	</div>
 
@@ -91,6 +118,28 @@ $gradient: linear-gradient(235deg, $red 1%, $black, $blue 95%);
 		}
 	}
 
+	main div {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+
+		img {
+			margin: 0 auto;
+			width: 45vw;
+			height: auto;
+		}
+
+		p.justify {
+			text-align: justify;
+		}
+
+		p, h1 {
+			max-width: 72vw;
+			font-size: 1.25rem;
+			margin: 0 auto;
+		}
+	}
+
 	footer {
 		padding: 0 1rem;
 		margin-bottom: 4rem;
@@ -121,6 +170,9 @@ $gradient: linear-gradient(235deg, $red 1%, $black, $blue 95%);
 	}
 
 	@media(min-width:1024pc) {
+		main > div {
+			flex-direction: row;
+		}
 		footer button:hover {
 			filter: brightness(0.68);
 		}

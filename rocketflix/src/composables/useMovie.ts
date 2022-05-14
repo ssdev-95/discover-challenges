@@ -1,4 +1,4 @@
-import { reactive, watchEffect } from 'vue'
+import { ref, Ref } from 'vue'
 import axios from 'axios'
 
 const KEY = import.meta.env.VITE_API_KEY
@@ -8,14 +8,17 @@ interface IMovie {
 	Poster: string;
 	Title: string;
 	Plot: string;
-	Response: boolean;
+	Response: string;
 }
 
 interface IMovieResponse {
-	data: Omit<IMovie, 'Response'> & { Response: string };
+	data: IMovie
 }
 
-export let movie: IMovie|null = reactive(null)
+export const movieTitle: Ref<string>= ref('')
+export const moviePlot: Ref<string> = ref('')
+export const moviePoster: Ref<string> = ref('')
+export const hasFailed: Ref<boolean>= ref(false)
 
 export function getRandomMovieID() {
 	const sufix = Math.floor(
@@ -28,21 +31,8 @@ export async function useMovie(id:string) {
 	const url = `${ENDPOINT}=${KEY}&i=${id}`
 	const { data } = await axios.get<IMovieResponse>(url)
 
-  const anotherMovie = { 
-		Title: data.Title,
-		Plot: data.Plot,
-		Poster: data.Poster,
-		Response: data.Response === 'True'
-	}
-
-	//alert(JSON.stringify(anotherMovie))
-
-	movie = anotherMovie
+	movieTitle.value = data.Title,
+	moviePlot.value = data.Plot,
+	moviePoster.value = data.Poster,
+	hasFailed.value = data.Response !== 'True'
 }
-
-/*watchEffect(() => {
-	//if(movie && movie.Response) {
-		alert(JSON.stringify(movie))
-	//}
-})*/
-
