@@ -37,7 +37,7 @@ export const plans = [
 	}
 ]
 
-export type PlanType = {
+export interface IPlan {
 	id: string;
 	name: string;
 	description: string;
