@@ -1,21 +1,39 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import PriceCard from './components/price-card.vue'
+import { plans } from './composables/plans'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+<header>
+	<h1>Meet our plans</h1>
+	<p>Meet our solutions and choose the suitable plan for your next project.</p>
+</header>
+<div>
+	<PriceCard
+		for="plan of plans"
+		:key="plan.id"
+		:plan="plan"
+	/>
+</div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+<style lang="scss">
+@import "./colors.scss";
+
+* {
+  font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#app {
+	width: 100vw;
+	height: 100vh;
+	background: $white;
 }
 </style>
