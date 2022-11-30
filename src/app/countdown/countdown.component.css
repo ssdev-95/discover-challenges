@@ -1,0 +1,86 @@
+:root {
+	--black: #4D4C59;
+	--purple: #6C63FF;
+	--lightGrey: #C8C8C8;
+	--textColor: #9C9AB6;
+}
+
+.container {
+	display: flex;
+}
+
+.container main {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	gap: 1rem;
+	padding: 3rem;
+}
+
+.container > main h1 {
+	color: var(--purple);
+	font-weight: 600;
+}
+
+.container > main p {
+	color: var(--textColor);
+	font-size: 1rem;
+	/*text-wrap: word-wrap;*/
+}
+
+.rocket {
+	width: 50%;
+	height: auto;
+}
+
+.subscribe {
+	width: 10rem;
+	padding: 0.7rem 1.25rem;
+	background: var(--purple);
+	border-radius: 0.68rem;
+	border: none;
+	color: #f0f2f5;
+	text-align: center;
+}
+
+.timer {
+	display: grid;
+	gap: 2rem;
+	max-width: 80vw;
+	
+	grid-template-columns: repeat(2, 50%);
+	grid-template-rows: repeat(2, 50%);
+	grid-template-areas: "TPL TPR" "BTL BTR";
+}
+
+.card {
+	display: flex;
+	flex-direction: column
+}
+
+@media(max-width:720px) {
+	.rocket {
+		display: none;
+  }
+
+	.container {
+		text-align: center;
+	}
+
+	.timer {
+		margin-inline: auto;
+	}
+}
+
+@media(min-width: 720px) {
+	.container {
+		background-position: top center, bottom center;
+	}
+
+	.timer {
+		display: flex;
+	}
+}
