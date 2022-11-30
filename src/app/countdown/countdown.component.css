@@ -8,7 +8,7 @@
 .container {
 	display: flex;
 	min-height: 100vh;
-	background-image: url(../../assets//bg-top.svg), url(../../assets//bg-bottom.svg);
+	background-image: url(./assets//bg-top.svg), url(./assets//bg-bottom.svg);
 	background-repeat: no-repeat, no-repeat;
 	background-position-y: top, bottom;
 }
@@ -36,7 +36,8 @@
 }
 
 .rocket {
-	width: 50%;
+	flex: none;
+	max-width: 40%;
 	height: auto;
 }
 
