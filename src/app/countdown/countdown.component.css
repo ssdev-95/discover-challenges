@@ -7,6 +7,10 @@
 
 .container {
 	display: flex;
+	min-height: 100vh;
+	background-image: url(../../assets//bg-top.svg), url(../../assets//bg-bottom.svg);
+	background-repeat: no-repeat, no-repeat;
+	background-position-y: top, bottom;
 }
 
 .container main {
@@ -48,17 +52,36 @@
 
 .timer {
 	display: grid;
-	gap: 2rem;
-	max-width: 80vw;
+	gap: 1rem;
+	width: 100%;
 	
-	grid-template-columns: repeat(2, 50%);
-	grid-template-rows: repeat(2, 50%);
-	grid-template-areas: "TPL TPR" "BTL BTR";
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .card {
-	display: flex;
-	flex-direction: column
+	display: block;
+}
+
+.card p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1rem;
+	color: #ddd;
+	font-weight: 400;
+	text-align: center;
+	line-height: 16px;
+}
+
+.card p:last-of-type {
+	width: 100%;
+	font-size: 3.5rem;
+	line-height: 56px;
+	color: #3c3c3c;
+	margin-top: 2px;
+	font-weight: 500;
+	letter-spacing: 4px;
+	background-color: #dddbf280;
+	border-radius: 4px;
+	text-align: center;
 }
 
 @media(max-width:720px) {
@@ -68,6 +91,7 @@
 
 	.container {
 		text-align: center;
+		background-position-x: left, center;
 	}
 
 	.timer {
@@ -82,5 +106,9 @@
 
 	.timer {
 		display: flex;
+	}
+
+	.card {
+		flex: 1;
 	}
 }
