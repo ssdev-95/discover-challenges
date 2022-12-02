@@ -23,9 +23,7 @@ export class RocketflixComponent {
 	KEY = environment.OMDB_API_KEY
 	ENDPOINT = `http://www.omdbapi.com/?apikey`
 	subscription:Subscription = {} as Subscription
-	movie: MovieResponse = {
-		Response: 'False'
-	} as MovieResponse
+	movie: MovieResponse = {} as MovieResponse
 	loading = false
 
 	getRandomMovieID() {
@@ -43,10 +41,9 @@ export class RocketflixComponent {
 		this.subscription = this
 		  .http
 			.get<MovieResponse>(url)
-			.subscribe((movie:MovieResponse) => {
+			.subscribe((movie) => {
 				this.movie = movie
 				this.loading = false
-				console.log(this.movie.Response)
 			})
 	}
 

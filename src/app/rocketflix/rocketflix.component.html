@@ -1,4 +1,8 @@
-<div class="container">
+<div *ngIf="loading" class="container">
+	<p>Loading</p>
+</div>
+
+<div *ngIf="!loading" class="container">
 	<header>
   	<img
 	    src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/shuffle.svg"
@@ -9,8 +13,7 @@
   </header>
 
   <main>
-		<p ngIf="loading">Loading</p>
-  	<div ngIf="movie.Response === 'True' && !loading">
+  	<div *ngIf="movie.Response === 'True'">
 	  	<img
   			[src]="movie.Poster"
 			  loading="lazy"
@@ -23,7 +26,7 @@
 		  </div>
 	  </div>
 
-  	<div ngIf="movie.Response === 'False' && !loading">
+  	<div *ngIf="movie.Response === 'False'">
 	  	<img
   			src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/poster.png"
   			loading="lazy"
