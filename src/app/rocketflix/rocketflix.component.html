@@ -1,0 +1,51 @@
+<div class="container">
+	<header>
+  	<img
+	    src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/shuffle.svg"
+	  	alt="Shuffle icon, two curved arrows"
+  	/>
+
+	  <p>Don't know what to watch next?</p>
+  </header>
+
+  <main>
+		<p ngIf="loading">Loading</p>
+  	<div ngIf="movie.Response === 'True' && !loading">
+	  	<img
+  			[src]="movie.Poster"
+			  loading="lazy"
+  	  	alt="N/A"
+	    />
+
+  		<div>
+				<h1>{{movie.Title}}</h1>
+	  		<p class="justify">{{movie.Plot}}</p>
+		  </div>
+	  </div>
+
+  	<div ngIf="movie.Response === 'False' && !loading">
+	  	<img
+  			src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/poster.png"
+  			loading="lazy"
+			  alt="Failed to bring movie info"
+		  />
+
+	  	<p>
+  		  Oops, today isn't a nice day to watch some movie, do ya?
+			  <span>Autodevs, let's code!</span>
+		  </p>
+	  </div>
+  </main>
+
+  <footer>
+  	<button (click)="getRandomMovie()">
+  		<img
+	   		src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/shuffle.svg"
+  			alt="Shuffle icon, two curved arrows"
+  		/>
+  		Find movie!
+  	</button>
+
+  	<p>Click on 'Find movie' button to let us bring you<br/>info of some cool movie to watch today!</p>
+  </footer>
+</div>

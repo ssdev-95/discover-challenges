@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 	challenges = [
-		{ path:'countdown', title:'Countdown' }
+		{ path:'countdown', title:'Countdown' },
+		{ path:'rocketflix', title: 'Rocketflix' }
 	]
 }
