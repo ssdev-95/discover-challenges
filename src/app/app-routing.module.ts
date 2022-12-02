@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RocketflixComponent } from './rocketflix/rocketflix.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [{
 	path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [{
 	path: 'theme-switcher',
 	component: ThemeSwitcherComponent,
 	title: 'Theme Switcher | DCChallenges'
+}, {
+	path: 'sidebar',
+	component: SidebarComponent,
+	title: 'Sidebar | DCChallenges'
 }];
 
 @NgModule({

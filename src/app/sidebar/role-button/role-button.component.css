@@ -1,0 +1,23 @@
+#role-button {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	height: 3.45rem;
+	padding: 0 1rem;
+	overflow: hidden;
+
+	font-size: 1rem;
+	border-radius: 0.85rem;
+	transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
+}
+
+#role-button > span {
+	text-align: left;
+	overflow: hidden;
+	transition: width 0.5s cubic-bezier(0.7,0.7,0.7,0.7);
+}
+
+#role-button.active {
+	background: #8ed7c6;
+}

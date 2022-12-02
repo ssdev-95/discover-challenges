@@ -9,6 +9,7 @@ export class HomeComponent {
 	challenges = [
 		{ path:'countdown', title:'Countdown' },
 		{ path:'rocketflix', title: 'Rocketflix' },
-		{ path:'theme-switcher', title: 'Theme Switcher' }
+		{ path:'theme-switcher', title: 'Theme Switcher' },
+		{ path:'sidebar', title: 'Sidebar' }
 	]
 }

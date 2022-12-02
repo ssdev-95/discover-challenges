@@ -1,0 +1,47 @@
+<div class="container">
+	<section id="menu-wrapper">
+  	<header class="isMenuOpen ? 'reset' : ''">
+			<img	 
+				*ngIf="isMenuOpen"
+				src="../../assets/sidebar/logo.svg"
+				alt="Vet logo icon"
+			/>
+
+	  	<button (click)="toggleMenu()">
+		  	<img
+			  	src="../../assets/sidebar/menu.svg"
+				  alt="Menu button icon"
+			  />
+  		</button>
+	  </header>
+
+		<div class="isMenuOpen ? 'reset' : ''">
+			<app-role-button
+				*ngFor="let role of roles"
+				[role]="role.name"
+				[icon]="'../../assets/sidebar/'+role.icon"
+				[selectedRole]="selectedRole"
+				[isMenuOpen]="isMenuOpen"
+				(selectRole)="selectRole($event)"
+			></app-role-button>
+		</div>
+
+		<footer :class="isMenuOpen ? 'reset' : ''">
+  		<div *ngIf="isMenuOpen">
+    		<img
+    			src="https://github.com/xSallus.png"
+    			alt="An avatar of a brown guy with gray clothe and a dark background"
+  			/>
+  		  <p>
+    			Salompas
+	  		  <span>Dev</span>
+	    	</p>
+  		</div>
+	  
+			<img
+  			src="../../assets/sidebar/logout.svg"
+	  		alt="log out button"
+		  />
+  	</footer>
+	</section>
+</div>

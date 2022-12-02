@@ -9,6 +9,7 @@ import { RocketflixModule } from './rocketflix/rocketflix.module';
 
 import { AppComponent } from './app.component';
 import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
+import { SidebarModule } from './sidebar/sidebar.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
 		HttpClientModule,
 		HomeModule,
 		RocketflixModule,
-		ThemeSwitcherModule
+		ThemeSwitcherModule,
+		SidebarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
