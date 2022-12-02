@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 	challenges = [
 		{ path:'countdown', title:'Countdown' },
-		{ path:'rocketflix', title: 'Rocketflix' }
+		{ path:'rocketflix', title: 'Rocketflix' },
+		{ path:'theme-switcher', title: 'Theme Switcher' }
 	]
 }

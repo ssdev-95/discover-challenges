@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { RocketflixComponent } from './rocketflix/rocketflix.component';
-import { CountdownComponent } from './countdown/countdown.component'
+import { CountdownComponent } from './countdown/countdown.component';
+import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 
 const routes: Routes = [{
 	path: '',
@@ -17,6 +18,10 @@ const routes: Routes = [{
 	path: 'rocketflix',
 	component: RocketflixComponent,
 	title: 'Rocketflix | DCChallenges'
+}, {
+	path: 'theme-switcher',
+	component: ThemeSwitcherComponent,
+	title: 'Theme Switcher | DCChallenges'
 }];
 
 @NgModule({

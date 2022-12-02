@@ -1,0 +1,26 @@
+<div [class]="['container', isDarkMode && 'dark']">
+	<label
+  	class="switcher"
+  >
+  	<input
+  		type="checkbox"
+			(change)="toggleDarkMode()"
+  	/>
+
+		<div class="icons">
+			<img
+  		  src="../../assets/theme-switcher/moon.svg"
+  			alt="A moon svg icon"
+  		/>
+
+			<img
+  		  src="../../assets/theme-switcher/sun.svg"
+  			alt="A sun svg icon"
+  		/>
+  	</div>
+  
+		<div
+   		[class]="['thumb', isDarkMode && 'active']"
+		></div>
+  </label>
+</div>

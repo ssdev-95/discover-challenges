@@ -8,18 +8,18 @@ import { HomeModule } from './home/home.module';
 import { RocketflixModule } from './rocketflix/rocketflix.module';
 
 import { AppComponent } from './app.component';
+import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
 		CommonModule,
     BrowserModule,
     AppRoutingModule,
 		HttpClientModule,
 		HomeModule,
-		RocketflixModule
+		RocketflixModule,
+		ThemeSwitcherModule
   ],
   providers: [],
   bootstrap: [AppComponent]
