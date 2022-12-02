@@ -8,7 +8,7 @@
 .container {
 	display: flex;
 	min-height: 100vh;
-	background-image: url(./assets//bg-top.svg), url(./assets//bg-bottom.svg);
+	background-image: url(../../assets/countdown/bg-top.svg), url(../../assets/countdown/bg-bottom.svg);
 	background-repeat: no-repeat, no-repeat;
 	background-position-y: top, bottom;
 }

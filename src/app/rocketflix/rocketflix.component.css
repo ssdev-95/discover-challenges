@@ -1,17 +1,13 @@
-:root {
-	--blue: #0A3068;
-	--red: #C12A23;
-	--white: #FFFCF9;
-	--gray900: #1A1A1A;
-	--gray500: #8C8C8C;
-	--gray200: #E9E6E3;
-	--gradient: linear-gradient(235deg, #C12A23 1%, black, #0A3068 95%);
-}
-
 .container {
 	background: linear-gradient(235deg, #C12A23 1%, black, #0A3068 95%);
 	min-height: 100vh;
 	color: #E9E6E3;
+}
+
+.container.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .container header {
@@ -93,5 +89,38 @@
 
 	.container footer button:hover {
 		filter: brightness(0.68);
+	}
+}
+
+.spinner__wrapper {
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50px;
+	overflow: hidden;
+
+	animation: SPIN 750ms infinite cubic-bezier(0.7,0.7,0.7,0.7);
+}
+
+.spinner__inner {
+	width: 100%;
+	height: 100%;
+	padding: 0.25rem;
+	background-image: linear-gradient(235deg, #C12A23 1%, black, #0A3068 95%);
+}
+
+.spinner__thumb {
+	width: 100%;
+	height: 100%;
+	border-radius: 5rem;
+	background-color: #030303;
+}
+
+@keyframes SPIN {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
 	}
 }

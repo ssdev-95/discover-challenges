@@ -1,11 +1,15 @@
-<div *ngIf="loading" class="container">
-	<p>Loading</p>
+<div *ngIf="loading" class="container loading">
+	<div class="spinner__wrapper">
+		<div class="spinner__inner">
+			<div class="spinner__thumb"></div>
+		</div>
+	</div>
 </div>
 
 <div *ngIf="!loading" class="container">
 	<header>
   	<img
-	    src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/shuffle.svg"
+	    src="../../assets/rocketflix/shuffle.svg"
 	  	alt="Shuffle icon, two curved arrows"
   	/>
 
@@ -28,7 +32,7 @@
 
   	<div *ngIf="movie.Response === 'False'">
 	  	<img
-  			src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/poster.png"
+  			src="../../assets/rocketflix/poster.png"
   			loading="lazy"
 			  alt="Failed to bring movie info"
 		  />
@@ -43,7 +47,7 @@
   <footer>
   	<button (click)="getRandomMovie()">
   		<img
-	   		src="https://raw.githubusercontent.com/xSallus/discover-challenges/dev/src/app/rocketflix/assets/shuffle.svg"
+	   		src="../../assets/rocketflix/shuffle.svg"
   			alt="Shuffle icon, two curved arrows"
   		/>
   		Find movie!
