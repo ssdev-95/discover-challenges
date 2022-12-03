@@ -14,3 +14,13 @@ a {
 li {
 	list-style: none;
 }
+
+@keyframes SPIN {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

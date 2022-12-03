@@ -10,6 +10,7 @@ export class HomeComponent {
 		{ path:'countdown', title:'Countdown' },
 		{ path:'rocketflix', title: 'Rocketflix' },
 		{ path:'theme-switcher', title: 'Theme Switcher' },
-		{ path:'sidebar', title: 'Sidebar' }
+		{ path:'sidebar', title: 'Sidebar' },
+		{ path:'rocketcard', title: 'Rocketcard' }
 	]
 }

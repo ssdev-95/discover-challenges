@@ -10,6 +10,7 @@ import { RocketflixModule } from './rocketflix/rocketflix.module';
 import { AppComponent } from './app.component';
 import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
 import { SidebarModule } from './sidebar/sidebar.module';
+import { RocketcardModule } from './rocketcard/rocketcard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { SidebarModule } from './sidebar/sidebar.module';
 		HomeModule,
 		RocketflixModule,
 		ThemeSwitcherModule,
-		SidebarModule
+		SidebarModule,
+		RocketcardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

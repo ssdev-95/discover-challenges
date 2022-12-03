@@ -6,6 +6,7 @@ import { RocketflixComponent } from './rocketflix/rocketflix.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RocketcardComponent } from './rocketcard/rocketcard.component';
 
 const routes: Routes = [{
 	path: '',
@@ -27,6 +28,10 @@ const routes: Routes = [{
 	path: 'sidebar',
 	component: SidebarComponent,
 	title: 'Sidebar | DCChallenges'
+}, {
+	path: 'rocketcard',
+	component: RocketcardComponent,
+	title: 'Rocketcard | DCChallenges'
 }];
 
 @NgModule({
