@@ -1,0 +1,52 @@
+<div class="container">
+	<header>
+		<img
+			src="../../assets/rocketnews/logo.svg"
+			alt="RocketNews logo"
+		/>
+	</header>
+
+  <main>
+  	<div class="paragraph">
+  	  <span>update ideas and email's in 5 minutes.</span>
+  		<p>all you need to start the day well informed.</p>
+  		<p>
+  		  news about <span>Rocketverse</span>, and all you need to to better start the day. perfect to prepare to code. ☕
+  		</p>
+  	</div>
+
+  	<form (submit)="submit($event)">
+  		<p>Insert your email</p>
+	
+  		<label>
+  			<input
+  				[formControl]="emailControl"
+	  			placeholder="oi@rocketseat.com.br"
+	    	/>
+	
+  			<button
+				  type="submit"
+					[disabled]="!emailControl.value"
+				>
+  				<img
+  					src="../../assets/rocketnews/send.svg"
+  					alt="An styled arrow icon"
+  				/>
+  			</button>
+  		</label>
+  	</form>
+
+  	<a href="#">
+  		let me read first
+  		<img
+				src="../../assets/rocketnews/arrow.svg"
+   			alt="An arrow icon"
+   		/>
+  	</a>
+  </main>
+</div>
+
+<rocket-toast
+	[isVisible]="isToastVisible"
+	[title]="emailControl.value"
+></rocket-toast>
