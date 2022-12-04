@@ -8,6 +8,7 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RocketcardComponent } from './rocketcard/rocketcard.component';
 import { RocketnewsComponent } from './rocketnews/rocketnews.component';
+import { SocialtreeComponent } from './socialtree/socialtree.component';
 
 const routes: Routes = [{
 	path: '',
@@ -37,6 +38,10 @@ const routes: Routes = [{
 	path: 'rocketnews',
 	component: RocketnewsComponent,
 	title: 'Rocketnews | DCChallenges'
+}, {
+	path: 'socialtree',
+	component: SocialtreeComponent,
+	title: 'SocialTreee | DCChallenges'
 }];
 
 @NgModule({

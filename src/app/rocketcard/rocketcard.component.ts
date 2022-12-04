@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { environment } from '../../environments/environment'
 import { generateHEXColor } from './utils/hex_code';
 
 type GitUser = {
@@ -22,18 +22,23 @@ type GitUser = {
   styleUrls: ['./rocketcard.component.css']
 })
 export class RocketcardComponent {
-	constructor(private httpClient: HttpClient) {}
-	url = `https://api.github.com/users/${environment.USER_LOGIN}`
+	constructor(
+		private httpClient: HttpClient,
+		private route: ActivatedRoute
+	) {}
+
 	gitSubscription:Subscription = {} as Subscription
+	routeSubscription:Subscription = {} as Subscription
 
 	user:GitUser = {} as GitUser
 	isLoading:boolean = true
 	accentColor:string = '#8257E6'
 
-	getGitUserData() {
+	getGitUserData(login:string) {
+		const url = `https://api.github.com/users/${login}`
 		this.gitSubscription = this
 		  .httpClient
-			.get<GitUser>(this.url)
+			.get<GitUser>(url)
 			.subscribe((user) => {
 				this.user = user
 				this.isLoading = false
@@ -45,14 +50,20 @@ export class RocketcardComponent {
 	}
 
 	ngOnInit() {
-		if(!environment.USER_LOGIN) {
-			throw Error('Failed to load environment data')
-		}
+		this.routeSubscription = this
+		  .route
+		  .queryParams
+			.subscribe((params) => {
+				if(!params['login']) {
+					throw Error('Failed to load environment data')
+				}
 
-		this.getGitUserData()
+				this.getGitUserData(params['login'])
+			})
 	}
 
 	ngOnDestroy() {
 		this.gitSubscription.unsubscribe()
+		this.routeSubscription.unsubscribe()
 	}
 }

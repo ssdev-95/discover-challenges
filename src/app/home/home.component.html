@@ -10,6 +10,7 @@
 		<li *ngFor="let challenge of challenges" class="card">
 			<a
 			  [routerLink]="[challenge.path]"
+					[queryParams]="challenge.path === 'rocketcard' ? { login: 'xSallus' } : {}"
 			>
 			  {{challenge.title}}
 			</a>

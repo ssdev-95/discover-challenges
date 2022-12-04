@@ -12,6 +12,7 @@ export class HomeComponent {
 		{ path:'theme-switcher', title: 'Theme Switcher' },
 		{ path:'sidebar', title: 'Sidebar' },
 		{ path:'rocketcard', title: 'Rocketcard' },
-		{ path:'rocketnews', title: 'Rocketnews' }
+		{ path:'rocketnews', title: 'Rocketnews' },
+		{ path:'socialtree', title: 'Social Tree' }
 	]
 }

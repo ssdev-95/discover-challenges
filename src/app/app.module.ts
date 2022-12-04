@@ -11,6 +11,7 @@ import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { RocketcardModule } from './rocketcard/rocketcard.module';
 import { RocketnewsModule } from './rocketnews/rocketnews.module';
+import { SocialtreeModule } from './socialtree/socialtree.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import { RocketnewsModule } from './rocketnews/rocketnews.module';
 		ThemeSwitcherModule,
 		SidebarModule,
 		RocketcardModule,
-		RocketnewsModule
+		RocketnewsModule,
+		SocialtreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
