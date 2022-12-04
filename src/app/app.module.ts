@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ThemeSwitcherModule } from './theme-switcher/theme-switcher.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { RocketcardModule } from './rocketcard/rocketcard.module';
+import { RocketnewsModule } from './rocketnews/rocketnews.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,12 +18,13 @@ import { RocketcardModule } from './rocketcard/rocketcard.module';
 		CommonModule,
     BrowserModule,
     AppRoutingModule,
-		HttpClientModule,
+
 		HomeModule,
 		RocketflixModule,
 		ThemeSwitcherModule,
 		SidebarModule,
-		RocketcardModule
+		RocketcardModule,
+		RocketnewsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

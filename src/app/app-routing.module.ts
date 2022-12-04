@@ -7,6 +7,7 @@ import { CountdownComponent } from './countdown/countdown.component';
 import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RocketcardComponent } from './rocketcard/rocketcard.component';
+import { RocketnewsComponent } from './rocketnews/rocketnews.component';
 
 const routes: Routes = [{
 	path: '',
@@ -32,6 +33,10 @@ const routes: Routes = [{
 	path: 'rocketcard',
 	component: RocketcardComponent,
 	title: 'Rocketcard | DCChallenges'
+}, {
+	path: 'rocketnews',
+	component: RocketnewsComponent,
+	title: 'Rocketnews | DCChallenges'
 }];
 
 @NgModule({

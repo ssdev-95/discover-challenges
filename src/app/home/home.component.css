@@ -25,11 +25,13 @@ h1 {
 }
 
 .card {
-	padding: 2rem;
+	padding: 1.45rem 1rem;
 	border-radius: 5px;
 
 	background-color: rgba(255,255,255,0.18);
 	color: #f0f2f5;
+
+	text-align: center;
 }
 
 @media(min-width:720px) {

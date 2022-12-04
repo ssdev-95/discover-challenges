@@ -11,6 +11,7 @@ export class HomeComponent {
 		{ path:'rocketflix', title: 'Rocketflix' },
 		{ path:'theme-switcher', title: 'Theme Switcher' },
 		{ path:'sidebar', title: 'Sidebar' },
-		{ path:'rocketcard', title: 'Rocketcard' }
+		{ path:'rocketcard', title: 'Rocketcard' },
+		{ path:'rocketnews', title: 'Rocketnews' }
 	]
 }

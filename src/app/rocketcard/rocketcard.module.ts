@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { RocketcardComponent } from './rocketcard.component';
 
 
@@ -9,7 +10,8 @@ import { RocketcardComponent } from './rocketcard.component';
     RocketcardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+		HttpClientModule
   ]
 })
 export class RocketcardModule { }
