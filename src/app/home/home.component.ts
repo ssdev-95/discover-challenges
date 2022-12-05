@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 	challenges = [
+		{ path:'login', title:'Login Form' },
 		{ path:'countdown', title:'Countdown' },
 		{ path:'rocketflix', title: 'Rocketflix' },
 		{ path:'theme-switcher', title: 'Theme Switcher' },
