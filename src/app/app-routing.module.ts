@@ -9,6 +9,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RocketcardComponent } from './rocketcard/rocketcard.component';
 import { RocketnewsComponent } from './rocketnews/rocketnews.component';
 import { SocialtreeComponent } from './socialtree/socialtree.component';
+import { PricingtableComponent } from './pricingtable/pricingtable.component';
 
 const routes: Routes = [{
 	path: '',
@@ -42,6 +43,10 @@ const routes: Routes = [{
 	path: 'socialtree',
 	component: SocialtreeComponent,
 	title: 'SocialTreee | DCChallenges'
+}, {
+	path: 'pricing',
+	component: PricingtableComponent,
+	title: 'Pricing Table | DCChallenges'
 }];
 
 @NgModule({

@@ -1,0 +1,51 @@
+.container {
+	width: 100vw;
+	min-height: 100vh;
+	background: #f9fbfc;
+}
+
+.container > header {
+	width: 100vw;
+	height: 22rem;
+	padding: 3rem 0;
+	background: #1d539e;
+	color: #f9fbfc;
+
+	text-align: center;
+}
+
+.container > header h1 {
+	margin: 0 auto;
+	font-size: 3rem;
+}
+
+.container > header p {
+	margin: 2rem auto;
+	font-size: 1.125rem;
+}
+
+.container > div {
+	transform: translateY(-8rem);
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+
+.container > footer {
+	width: 100%;
+	height: 2.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: auto;
+}
+
+@media(max-width: 720px) {
+	.container > div {
+		flex-direction: column;
+		align-items: center;
+		gap: 0;
+	}
+}

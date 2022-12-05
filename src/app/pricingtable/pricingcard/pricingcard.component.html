@@ -1,0 +1,38 @@
+<div
+	id="pricing__wrapper"
+	[class]="plan.popular && 'contrast'"
+>
+  <header id="pricing__header">
+		<h1>{{plan.name}}</h1>
+		
+		<div class="pricing__badge">
+			<span *ngIf="plan.popular">POPULAR</span>
+		</div>
+	</header>
+
+	<div id="pricing__price">
+	  <p class="price">
+		  US$ {{plan.price.toString().slice(0,2)}},
+			<span>
+				{{plan.price.toString().slice(2,4)}}/month
+			</span>
+		</p>
+		<p class="description">{{plan.description}}</p>
+	</div>
+
+	<div id="pricing__feature">
+		<span
+			*ngFor="let feat of plan.features"
+		>
+			<img
+				src="../../../assets/check.svg"
+				alt="Check svg icon"
+			/>
+			{{feat}}
+		</span>
+	</div>
+
+	<footer id="pricing__footer">
+		<button>SUBSCRIBE</button>
+	</footer>
+</div>

@@ -12,6 +12,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { RocketcardModule } from './rocketcard/rocketcard.module';
 import { RocketnewsModule } from './rocketnews/rocketnews.module';
 import { SocialtreeModule } from './socialtree/socialtree.module';
+import { PricingtableModule } from './pricingtable/pricingtable.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { SocialtreeModule } from './socialtree/socialtree.module';
 		SidebarModule,
 		RocketcardModule,
 		RocketnewsModule,
-		SocialtreeModule
+		SocialtreeModule,
+		PricingtableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

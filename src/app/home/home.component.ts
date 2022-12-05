@@ -13,6 +13,7 @@ export class HomeComponent {
 		{ path:'sidebar', title: 'Sidebar' },
 		{ path:'rocketcard', title: 'Rocketcard' },
 		{ path:'rocketnews', title: 'Rocketnews' },
-		{ path:'socialtree', title: 'Social Tree' }
+		{ path:'socialtree', title: 'Social Tree' },
+		{ path:'pricing', title:'Pricing Table' }
 	]
 }
