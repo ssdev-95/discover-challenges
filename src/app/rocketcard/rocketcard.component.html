@@ -1,0 +1,99 @@
+<div
+	*ngIf="isLoading; else content"
+	class="container"
+>
+	<div class="loader__wrapper">
+		<div class="loader__inner">
+			<div class="loader__thumb"></div>
+		</div>
+	</div>
+</div>
+
+<ng-template #content>
+<div class="container">
+	<div>
+		<span>Compartilhe seu #rocketcard</span>
+
+		<section
+			class="wrapper"
+			[style]="{'backgroundColor':accentColor}"
+		>
+			<div class="card">
+				<header>
+					<div class="seal">
+						<img
+							src="../../assets/rocketcard/logo.svg"
+							alt="selo rocketseat de qualidade"
+						/>
+					</div>
+					<p>{{ user.login }}</p>
+				</header>
+
+				<div class="user-info">
+  			  <span>
+  				  <img
+  						src="../../assets/rocketcard/followers.svg"
+							alt="svg icon"
+						/>
+						{{ user.followers }} Followers
+					</span>
+
+					<span>
+						<img
+  						src="../../assets/rocketcard/following.svg"
+  						alt="svg icon"  
+  	        />
+						{{ user.following }} Following
+					</span>
+
+					<span>
+  				  <img
+							src="../../assets/rocketcard/repository.svg"
+							alt="svg icon"
+  					/>
+  					{{ user.public_repos }} Repositories
+  				</span>
+
+					<span>
+  					<img
+  						src="../../assets/rocketcard/company.svg"
+  						alt="svg icon"
+  					/>
+  					{{ user.company }}
+  				</span>
+
+					<span>
+						<img
+  						src="../../assets/rocketcard/location.svg"
+  						alt="svg icon"
+  					/>
+  					{{ user.location }}
+  				</span>
+				</div>
+
+				<img
+  				class="avatar"
+  				[src]="user.avatar_url"
+					[style]="{'borderColor':accentColor}"
+  				alt="github_user_avatar"
+  			/>
+
+  			<footer>
+  			  <img
+  					src="../../assets/rocketcard/logo.svg"
+  					alt="selo rocketseat de qualidade"
+  				/>
+  				<p>ROCKETCARD</p>   
+        </footer>
+			</div>
+		</section>
+	</div>
+
+	<footer>
+		<span>Customizar Rocketcard</span>
+	  <button (click)="toggleCardAccentColor()">
+			Change background
+		</button>
+	</footer>
+</div>
+</ng-template>

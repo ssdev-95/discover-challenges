@@ -1,0 +1,135 @@
+* {
+  font-weight: 500;
+  text-align: center;
+	color: #084236;
+	transform-origin: center left;
+}
+
+h2 {
+	margin: 1.8rem 1.25rem;
+}
+
+button {
+	background: transparent;
+	border: 0;
+}
+
+.container {
+	min-height: 100vh;
+	width: 100vw;
+	background-color: #dce4e3;
+}
+
+#menu-wrapper {
+	min-height: 100vh;
+	width: fit-content;
+	overflow-y: auto;
+
+	background: #18c29c;
+	transition: all 1.5s cubic-bezier(0.7, 0.7, 0.7, 0.7);
+}
+
+#menu-wrapper	header {
+	width: 100%;
+	padding: 1rem;
+	height: 4rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#menu-wrapper header.reset button {
+	display: block;
+	margin-inline: auto;
+}
+
+#menu-wrapper header.reset {
+	justify-content: center;
+}
+
+#menu-wrapper > div {
+	width: fit-content;
+	padding: 1rem;
+	height: calc(100vh - 8rem);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+
+	gap: 1rem;
+}
+
+#menu-wrapper > div.reset > button.active {
+	background: #dce4e3;
+}
+
+#menu-wrapper > div.reset > button.active > img {
+	filter: invert(90%);
+}
+
+#menu-wrapper footer {
+	height: 4rem;
+	width: 100%;
+	padding: 0.5rem;
+
+	background: #8ed7c6;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+
+	overflow: hidden;
+}
+
+#menu-wrapper footer.reset {
+	justify-content: center;
+}
+
+#menu-wrapper footer > div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+
+	height: 4rem;
+	overflow: hidden;
+
+	transition: width 0.5s cubic-bezier(0.7, 0.7, 0.7, 0.7);
+}
+	
+#menu-wrapper footer > div img {
+	height: 3rem;
+	width: auto;
+	border-radius: 0.85rem;
+}
+	
+#menu-wrapper footer > div p {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: flex-start;
+}
+
+#menu-wrapper footer > div p span {
+	font-weight: 400;
+	font-size: 90%;
+}
+
+#menu-wrapper footer > img {
+	width: auto;
+	height: 2.28rem;
+}
+
+#menu-wrapper footer.reset > img {
+	display: block;
+	margin-inline: auto;
+}
+
+@media(min-height:720px) {                      
+	#menu-wrapper > div {
+		height: calc(100vh - 8rem);
+	}
+}

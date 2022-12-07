@@ -1,0 +1,115 @@
+:root {
+	--black: #4D4C59;
+	--purple: #6C63FF;
+	--lightGrey: #C8C8C8;
+	--textColor: #9C9AB6;
+}
+
+.container {
+	display: flex;
+	min-height: 100vh;
+	background-image: url(../../assets/countdown/bg-top.svg), url(../../assets/countdown/bg-bottom.svg);
+	background-repeat: no-repeat, no-repeat;
+	background-position-y: top, bottom;
+}
+
+.container main {
+	display: flex;
+	flex-direction: column;
+
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	gap: 1rem;
+	padding: 3rem;
+}
+
+.container > main h1 {
+	color: var(--purple);
+	font-weight: 600;
+}
+
+.container > main p {
+	color: var(--textColor);
+	font-size: 1rem;
+	/*text-wrap: word-wrap;*/
+}
+
+.rocket {
+	flex: none;
+	max-width: 40%;
+	height: auto;
+}
+
+.subscribe {
+	width: 10rem;
+	padding: 0.7rem 1.25rem;
+	background: var(--purple);
+	border-radius: 0.68rem;
+	border: none;
+	color: #f0f2f5;
+	text-align: center;
+}
+
+.timer {
+	display: grid;
+	gap: 1rem;
+	width: 100%;
+	
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+	display: block;
+}
+
+.card p {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1rem;
+	color: #ddd;
+	font-weight: 400;
+	text-align: center;
+	line-height: 16px;
+}
+
+.card p:last-of-type {
+	width: 100%;
+	font-size: 3.5rem;
+	line-height: 56px;
+	color: #3c3c3c;
+	margin-top: 2px;
+	font-weight: 500;
+	letter-spacing: 4px;
+	background-color: #dddbf280;
+	border-radius: 4px;
+	text-align: center;
+}
+
+@media(max-width:720px) {
+	.rocket {
+		display: none;
+  }
+
+	.container {
+		text-align: center;
+		background-position-x: left, center;
+	}
+
+	.timer {
+		margin-inline: auto;
+	}
+}
+
+@media(min-width: 720px) {
+	.container {
+		background-position: top center, bottom center;
+	}
+
+	.timer {
+		display: flex;
+	}
+
+	.card {
+		flex: 1;
+	}
+}

@@ -1,0 +1,19 @@
+<div>
+	<h1>
+		<img src="../../assets/icon.svg" alt="Discover" />
+		Discover Challenges
+	</h1>
+
+	<ul
+		class="card-list"
+	>
+		<li *ngFor="let challenge of challenges" class="card">
+			<a
+			  [routerLink]="[challenge.path]"
+					[queryParams]="challenge.path === 'rocketcard' ? { login: 'xSallus' } : {}"
+			>
+			  {{challenge.title}}
+			</a>
+		</li>
+	</ul>
+</div>

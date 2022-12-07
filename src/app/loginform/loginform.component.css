@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+:host {
+  --text-base: #afb6c2;
+  --text-title: #d4ccb6;
+  --background: #191816;
+  --form-background: #24221f;
+  --primary-color: #ffc632;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100vw;
+  color: var(--text-base);
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+input {
+  border: none;
+  color: var(--text-base);
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.container header {
+  width: 100%;
+  height: 10vh;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main {
+  padding: 2rem;
+  margin: 10vh 0 0;
+  max-width: 98vw;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+main > div {
+  display: flex;
+  gap: 1rem;
+}
+
+main > div h2 {
+  font-family: 'Roboto', Sans-Serif;
+  font-weight: 500;
+}
+
+main > h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  font-family: 'Poppins', Sans-Serif;
+  color: var(--text-base);
+  margin-top: 0.5rem;
+}
+
+main form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 5vh;
+}
+
+main form > button {
+  background: var(--primary-color);
+  color: var(--background);
+  padding: 0.65rem;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+main form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+main form div h6 {
+  font-size: 1rem;
+  font-family: 'Roboto', Sans-Serif;
+}
+
+main form div label {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  border: 1px solid var(--text-base);
+  border-radius: 6px;
+  padding: 0.65rem;
+  position: relative;
+}
+
+main form div label input {
+  height: inherit;
+  flex: 9;
+  padding-left: 0.5rem;
+  background: rgba(0,0,0,0);
+  font-family: 'Poppins', Sans-Serif;
+}
+
+main form div:last-of-type {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+}
+
+main form div:last-of-type span {
+  color: var(--primary-color);
+  line-height: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+main form div:last-of-type label {
+  flex: 0.7;
+  border: none;
+  padding: 0;
+  gap: 0rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main form div label input[type=checkbox] {
+  background: rgba(0,0,0,0);
+  height: 0;
+  position: relative;
+}
+
+main form div label img[alt=eye] {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  height: 1.35rem;
+  width: auto;
+}
+
+main form div label input[type=checkbox]:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: rgba(0,0,0,0);
+  border: 2px solid var(--text-base);
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+}
+
+main form div label input[type=checkbox].checked:after {
+  background: url('../../assets/check.svg') no-repeat;
+  border-color: var(--primary-color);
+  background-color: var(--primary-color);
+  background-position: 50% 40%;
+  background-size: 100%;
+}
+
+main form div:last-of-type label span {
+  color: var(--text-base);
+  font-weight: 400;
+  transform: translateX(-1rem);
+}
+
+main form div label input::placeholder {
+  font-family: 'Poppins', Sans-Serif;
+  color: var(--text-base);
+}
+
+main form div label img {
+  height: 100%;
+  width: auto;
+}
+
+main form div label.focus input {
+  color: var(--text-base);
+}
+
+main form div label.focus {
+  border: 2px solid var(--primary-color);
+}
+
+main > span {
+  display: flex;
+  color: var(--text-title);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  align-self: center;
+}
+
+main span button {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  background: rgba(0,0,0,0);
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow-right {
+  color: var(--primary-color);
+}
+
+@media (min-width:800px) {
+  .container {
+    background-image: url('../../assets/loginform/side-image.jpg');
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+    background-attachment: stretch;
+    background-position-x: 100%;
+  }
+}
+
+@media (min-width:1024px) {
+  main form {
+    align-self: left;
+  }
+}
+
+@media(max-width: 800px) {
+	.container {
+		align-items: center;
+	}
+}

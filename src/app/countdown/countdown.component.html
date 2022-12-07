@@ -1,0 +1,35 @@
+<div class="container">
+	<main>
+  	<h1>READY TO LAUNCH IN...</h1>
+
+		<div class="timer">
+			<div class="card">
+				<p>Days</p>
+				<p>{{timer.days.toString().padStart(2,'0')}}</p>
+			</div>
+
+			<div class="card">
+				<p>Hours</p>
+				<p>{{timer.hours.toString().padStart(2,'0')}}</p>
+			</div>
+
+			<div class="card">
+				<p>Minutes</p>
+				<p>{{timer.minutes.toString().padStart(2,'0')}}</p>
+			</div>
+
+			<div class="card">
+				<p>Seconds</p>
+				<p>{{timer.seconds.toString().padStart(2,'0')}}</p>
+			</div>
+		</div>
+
+  	<p>Subscribe to know more about what's coming on :D</p>
+	  <button class="subscribe">Subscribe</button>
+  </main>
+  <img
+    class="rocket"
+  	src="../../assets/countdown/rocket.svg"
+	  alt="Rocket"
+  />
+</div>

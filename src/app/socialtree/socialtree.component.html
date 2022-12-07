@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="link-tree">
+		<div class="user-pic">
+  		<img
+				[src]="'https://github.com/' + username + '.png'"
+  			[alt]="username"
+  		/>
+  	</div>
+
+  	<p>&lt;{{username}}&nbsp;&bsol;&gt;</p> 
+  
+		<div class="user-links">
+  		<a
+				*ngFor="let link of links"
+  			class="link-card" 
+				[href]="link.href"
+				target="__blank"
+			>
+			<span>{{link.title}}</span>
+			</a>
+		</div>	
+	</div>
+</div>
